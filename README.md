@@ -3,7 +3,7 @@
 
 ***
 ###目录结构
-- doc：sql脚本
+- sql脚本：doc
 - 主包：com.mac
 - 资源：resources
 ###运行

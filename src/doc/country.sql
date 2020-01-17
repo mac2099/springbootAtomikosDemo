@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS win;
+CREATE DATABASE win DEFAULT CHARACTER SET utf8;
+USE win;
+
+CREATE TABLE `country` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_name` varchar(255) NOT NULL,
+  `country_code` varchar(255) NOT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
