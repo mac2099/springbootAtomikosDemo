@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mac.mapper.win.CountryMapper">
+    <resultMap id="BaseResultMap" type="com.mac.model.win.Country">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="country_name" jdbcType="VARCHAR" property="countryName"/>
+        <result column="country_code" jdbcType="VARCHAR" property="countryCode"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.mac.model.win.Country">
+        insert into country
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            <if test="countryName != null">
+                country_name,
+            </if>
+            <if test="countryCode != null">
+                country_code,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id,jdbcType=INTEGER},
+            <if test="countryName != null">
+                #{countryName,jdbcType=VARCHAR},
+            </if>
+            <if test="countryCode != null">
+                #{countryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+</mapper>
